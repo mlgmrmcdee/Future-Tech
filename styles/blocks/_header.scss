@@ -1,0 +1,115 @@
+@use "../helpers" as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation-name: scrolling-header;
+  animation-fill-mode: both;
+  animation-timeline: scroll();
+  animation-range: 100px 300px;
+
+  @keyframes scrolling-header {
+    to {
+      box-shadow: 0 0 16px var(--color-dark-40);
+    }
+  }
+
+  &__promo {
+    padding-block: 20px;
+    text-align: center;
+    border-bottom: var(--border);
+    background-color: var(--color-dark);
+
+    @include mobile {
+      padding-block: 14px;
+    }
+  }
+
+  &__body {
+    padding-block: 24px;
+    background-color: var(--color-dark-10);
+
+    @include mobile {
+      padding-block: 20px;
+    }
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 16px;
+    }
+  }
+
+  &__overlay {
+    @include mobile-above {
+      display: contents;
+    }
+
+    @include mobile {
+      position: fixed;
+      inset: 0;
+      padding: 16px;
+      background-color: var(--color-dark-10);
+      transition-duration: var(--transition-duration);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 48px;
+
+      &:not(.is-active) {
+        @include hide;
+
+        translate: 100%;
+      }
+    }
+  }
+
+  &__menu {
+    @include mobile {
+      overflow-y: auto;
+    }
+
+    &-list {
+      display: flex;
+      align-items: center;
+      column-gap: 16px;
+
+      @include laptop {
+        column-gap: 6px;
+      }
+
+      @include mobile {
+        flex-direction: column;
+        row-gap: 16px;
+      }
+    }
+
+    &-link {
+      padding: 14px 24px;
+      color: var(--color-gray-50);
+
+      @include laptop {
+        padding: 10px 18px;
+      }
+
+      &.is-active {
+        font-weight: 500;
+        color: var(--color-white);
+        background-color: var(--color-dark);
+        border: var(--border);
+        border-radius: 10px;
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__contact-us-link {
+    @include mobile {
+      width: 100%;
+      max-width: 300px;
+      align-self: center;
+    }
+  }
+}

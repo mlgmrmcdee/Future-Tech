@@ -1,0 +1,135 @@
+@use "../helpers" as *;
+
+.card {
+  @include tablet-above {
+    display: grid;
+    grid-template-columns: 37.5% auto;
+  }
+
+  &__preview,
+  &__body {
+    padding: 80px;
+
+    @include laptop {
+      padding: 60px;
+    }
+  }
+
+  &__preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: fluid(60, 20);
+    padding-left: 0;
+
+    @include tablet-above {
+      border-right: var(--border);
+    }
+
+    @include tablet {
+      padding-right: 0;
+      padding-block: 50px;
+      border-bottom: var(--border);
+    }
+
+    &-main {
+      display: grid;
+      row-gap: fluid(50, 24);
+
+      @include tablet {
+        justify-content: start;
+      }
+    }
+
+    &-icon {
+      width: fluid(80, 50);
+    }
+
+    &-info {
+      display: grid;
+      row-gap: fluid(16, 6);
+    }
+  }
+
+  &__body {
+    padding-right: 0;
+
+    @include tablet {
+      padding: 30px 0;
+    }
+  }
+
+  &__grid {
+    display: grid;
+
+    &--2-cols {
+      grid-template-columns: repeat(2, 1fr);
+      gap: fluid(30, 10);
+
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &--2-cols-alt {
+      gap: 30px 20px;
+
+      @include laptop {
+        gap: 24px 16px;
+      }
+
+      @include mobile-above {
+        grid-template-columns: auto 1fr;
+      }
+
+      @include mobile {
+        row-gap: 16px;
+      }
+    }
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    row-gap: fluid(20, 4);
+
+    &--wide {
+      grid-column: -1 / 1;
+    }
+
+    &:has(> *:only-child) {
+      justify-content: center;
+    }
+
+    &:has(.card__cell-link) {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "other link"
+        "other link";
+      column-gap: 20px;
+      align-items: center;
+    }
+
+    &-image {
+      width: 100%;
+      height: fluid(332, 169);
+      object-fit: cover;
+      border-radius: 12px;
+
+      @include laptop {
+        border-radius: 10px;
+      }
+    }
+
+    &-subtitle {
+      font: inherit;
+      color: inherit;
+    }
+
+    &-link {
+      grid-area: link;
+    }
+  }
+}

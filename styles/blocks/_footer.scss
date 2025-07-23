@@ -1,0 +1,90 @@
+@use "../helpers" as *;
+
+.footer {
+  color: var(--color-dark-40);
+
+  &__body {
+    padding-block: fluid(80, 40);
+    border-bottom: var(--border);
+  }
+
+  &__menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: start;
+    column-gap: fluid(80, 20);
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 40px;
+    }
+
+    @include mobile {
+      row-gap: 20px;
+    }
+
+    &-column {
+      display: grid;
+      row-gap: fluid(36, 16);
+
+      &:last-child {
+        @include tablet {
+          grid-column: -1 / 1;
+
+          .footer__menu-list {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 12px;
+          }
+        }
+      }
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: fluid(18, 8);
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      column-gap: 8px;
+    }
+  }
+
+  &__extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 16px;
+    padding-block: 40px;
+
+    @include laptop {
+      padding-block: 24px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      row-gap: 20px;
+    }
+
+    &-menu {
+      &-list {
+        display: flex;
+        white-space: nowrap;
+      }
+
+      &-item:not(:last-child)::after {
+        content: "|";
+        margin-inline: 11px;
+      }
+    }
+  }
+
+  &__soc1als {
+    @include mobile {
+      order: -1;
+    }
+  }
+}

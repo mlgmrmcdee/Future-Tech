@@ -1,0 +1,73 @@
+@use "../helpers" as *;
+
+.tabs {
+  &__header {
+    border-bottom: var(--border);
+
+    @include tablet {
+      overflow-x: auto;
+    }
+  }
+
+  &__buttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    padding-block: fluid(50, 20);
+
+    @include laptop {
+      column-gap: 14px;
+    }
+
+    @include tablet {
+      width: max-content;
+    }
+  }
+
+  &__button {
+    color: var(--color-gray-60);
+    font-size: 18px;
+    padding: fluid(30, 18) 11px;
+    border: var(--border);
+    border-radius: 8px;
+    background-color: transparent;
+
+    @include laptop {
+      font-size: 14px;
+    }
+
+    &.is-active {
+      font-weight: 500;
+      color: var(--color-white);
+      background-color: var(--color-dark-10);
+      pointer-events: none;
+    }
+
+    @include hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    &:active {
+      scale: 0.95;
+    }
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__content {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 0.5s, opacity 0.5s;
+    pointer-events: none;
+
+    &.is-active {
+      height: auto;
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}

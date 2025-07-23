@@ -1,0 +1,35 @@
+@use "normalize";
+@use "variables";
+@use "fonts";
+@use "utils";
+@use "globals";
+
+@use "blocks/header";
+@use "blocks/footer";
+@use "blocks/hero";
+@use "blocks/section";
+@use "blocks/about";
+
+@use "blocks/icon";
+@use "blocks/logo";
+@use "blocks/button";
+@use "blocks/burger-button";
+@use "blocks/badge";
+@use "blocks/soc1als";
+@use "blocks/metrics";
+@use "blocks/team";
+@use "blocks/resources-preview";
+@use "blocks/advantage-card";
+@use "blocks/tag";
+@use "blocks/list";
+@use "blocks/tile";
+@use "blocks/card";
+@use "blocks/tabs";
+@use "blocks/person-card";
+@use "blocks/blog-actions";
+@use "blocks/blog-card";
+@use "blocks/download-info";
+@use "blocks/bordered-grid";
+@use "blocks/rating_view";
+@use "blocks/review-card";
+@use "blocks/about-card";

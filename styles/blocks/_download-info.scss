@@ -1,0 +1,23 @@
+@use "../helpers" as *;
+
+.download-info {
+  display: inline-grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 50px;
+
+  @include laptop {
+    column-gap: 30px;
+  }
+
+  &__team {
+    --personImageSize: 50px;
+
+    background-color: var(--color-dark);
+    border-radius: 12px;
+
+    @include laptop {
+      --personImageSize: 40px;
+    }
+  }
+}

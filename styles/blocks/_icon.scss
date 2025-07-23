@@ -1,0 +1,35 @@
+@use "../helpers" as *;
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 10px;
+
+  &::after {
+    --size: 24px;
+
+    @include square(var(--size));
+
+    content: "";
+    flex-shrink: 0;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include laptop {
+      --size: 20px;
+    }
+  }
+
+  &--yellow-arrow {
+    &::after {
+      background-image: url(../../icons/yellow_arrow-top-right.svg);
+    }
+  }
+
+  &--yellow-eye {
+    &::after {
+      background-image: url(../../icons/yellow_eye.svg);
+    }
+  }
+}

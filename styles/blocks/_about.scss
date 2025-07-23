@@ -1,0 +1,103 @@
+@use "../helpers" as *;
+
+.about {
+  padding-block: fluid(120, 40);
+  background-color: var(--color-dark-10);
+
+  &__inner {
+    display: grid;
+    row-gap: fluid(100, 40);
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "icon info"
+      "icon description";
+    gap: 30px fluid(80, 20);
+    align-items: center;
+
+    @include laptop {
+      row-gap: 20px;
+    }
+
+    @include mobile {
+      grid-template-areas:
+        "icon subtitle"
+        "title title"
+        "description description";
+      row-gap: 4px;
+    }
+  }
+
+  &__icon {
+    grid-area: icon;
+    width: fluid(150, 60);
+  }
+
+  &__info {
+    display: grid;
+    row-gap: 16px;
+
+    @include laptop {
+      row-gap: 10px;
+    }
+
+    @include mobile {
+      display: contents;
+    }
+  }
+
+  &__subtitle {
+    justify-self: start;
+
+    @include mobile {
+      grid-area: subtitle;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      grid-area: title;
+      margin-top: 20px;
+    }
+  }
+
+  &__description {
+    @include mobile {
+      grid-area: description;
+
+      p {
+        visibility: hidden;
+        position: relative;
+
+        &::after {
+          content: "Immerse yourself in the world of future technology. Explore our comprehensive resources.";
+          visibility: visible;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--color-dark);
+    gap: 20px;
+
+    @include laptop {
+      padding: 10px;
+      border-radius: 10px;
+      gap: 10px;
+    }
+
+    @include mobile-above {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
